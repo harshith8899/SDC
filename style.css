@@ -11,6 +11,7 @@ body {
             text-align: center;
         }
         nav {
+            justify-content: flex-end;
             display: flex;
             justify-content: center;
             background-color: #444;
