@@ -287,12 +287,110 @@
     }
 }
 
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 78px;
+    background: #11101D;
+    padding: 6px 14px;
+    z-index: 99;
+    transition: all 0.5s ease;
+}
+
+.sidebar.open {
+    width: 250px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        left: -78px; /* Hide sidebar by default on mobile */
+        width: 78px;
+    }
+
+    .sidebar.open {
+        left: 0;
+        width: 240px; /* Slightly smaller when open on mobile */
+    }
+
+    /* Hamburger trigger for mobile */
+    .mobile-trigger {
+        position: fixed;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #11101D;
+        color: white;
+        width: 20px;
+        height: 40px;
+        border-radius: 0 5px 5px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 100;
+        transition: all 0.5s ease;
+    }
+
+    .sidebar.open ~ .mobile-trigger {
+        left: 240px;
+    }
+
+    /* Adjust home section for mobile */
+    .home-section {
+        left: 0 !important;
+        width: 100% !important;
+    }
+
+    .sidebar.open ~ .home-section {
+        left: 0 !important;
+        width: 100% !important;
+        filter: brightness(0.8); /* Dim the main content when sidebar is open */
+    }
+
+    /* Make sidebar overlay content instead of pushing it */
+    .sidebar {
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Optimize touch targets for mobile */
+    .sidebar li {
+        margin: 12px 0;
+    }
+
+    .sidebar li a {
+        padding: 12px;
+    }
+
+    /* Hide tooltips on mobile as they're not touch-friendly */
+    .sidebar li .tooltip {
+        display: none;
+    }
+
+    /* Adjust profile section for mobile */
+    .sidebar li.profile {
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+/* Keep existing styles but override for mobile where needed */
+.sidebar .logo-details {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
 .club-header {
     position: relative;
     text-align: center;
     color: #333;
     font-size: 2.5em;
     margin: 20px;
+    padding: 40px 0;
+    overflow: hidden;
 }
 
 .club-header h1 {
@@ -301,34 +399,86 @@
 }
 
 .doodle-background {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Center-aligns doodles horizontally */
-    align-items: center; /* Center-aligns doodles vertically */
-    gap: 20px; /* Spacing between doodles */
-    width: 100%;
-    height: 300px; /* Adjust height as needed */
     position: absolute;
-    top: -25%;
-    left: 50%;
-    transform: translateX(-50%); /* Center background in viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: 1;
-    opacity: 0.15; /* Control visibility */
-    overflow: hidden;
-    pointer-events: none;
+    opacity: 0.15;
 }
 
 .doodle {
-    width: 60px; /* Adjust doodle size as needed */
-    animation: float 10s infinite ease-in-out alternate;
-    transition: transform 0.5s ease;
+    position: absolute;
+    width: 60px;
 }
 
+/* Position each doodle differently */
+#doodle-computer {
+    top: 20%;
+    left: 30%;
+    animation: float1 8s infinite ease-in-out;
+}
+
+#doodle-wifi {
+    top: 40%;
+    right: 35%;
+    animation: float2 10s infinite ease-in-out;
+}
+
+#doodle-github {
+    bottom: 25%;
+    left: 45%;
+    animation: float3 12s infinite ease-in-out;
+}
+
+@keyframes float1 {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    33% {
+        transform: translate(15px, -15px) rotate(5deg);
+    }
+    66% {
+        transform: translate(-15px, 15px) rotate(-5deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+@keyframes float2 {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    33% {
+        transform: translate(-20px, -10px) rotate(-5deg);
+    }
+    66% {
+        transform: translate(10px, 20px) rotate(5deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+@keyframes float3 {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    33% {
+        transform: translate(25px, 10px) rotate(8deg);
+    }
+    66% {
+        transform: translate(-15px, -20px) rotate(-8deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+/* Add subtle hover effect */
 .doodle:hover {
-    transform: scale(1.1); /* Slight scaling effect on hover */
-}
-
-@keyframes float {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-10px); }
+    animation-play-state: paused;
+    opacity: 0.5;
 }
