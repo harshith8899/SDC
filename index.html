@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title> Responsive Sidebar Menu | CodingLab </title>
+    <title>Club</title>
     <link rel="stylesheet" href="style.css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -14,8 +14,8 @@
 <body>
     <div class="sidebar">
         <div class="logo-details">
-            <i class='bx bxl-c-plus-plus icon'></i>
-            <div class="logo_name">CodingLab</div>
+            <i class='bx bx-code-curly icon'></i>
+            <div class="logo_name">Club</div>
             <i class='bx bx-menu' id="btn"></i>
         </div>
         <ul class="nav-list">
@@ -34,9 +34,9 @@
             <li>
                 <a href="#">
                     <i class='bx bx-user'></i>
-                    <span class="links_name">User</span>
+                    <span class="links_name">Members</span>
                 </a>
-                <span class="tooltip">User</span>
+                <span class="tooltip">Members</span>
             </li>
             <li>
                 <a href="#">
@@ -47,24 +47,24 @@
             </li>
             <li>
                 <a href="#">
-                    <i class='bx bx-pie-chart-alt-2'></i>
-                    <span class="links_name">Analytics</span>
+                    <i class='bx bx-calendar-event'></i>
+                    <span class="links_name">Events</span>
                 </a>
-                <span class="tooltip">Analytics</span>
+                <span class="tooltip">Events</span>
             </li>
             <li>
                 <a href="#">
                     <i class='bx bx-folder'></i>
-                    <span class="links_name">File Manager</span>
+                    <span class="links_name">Previuos Projects</span>
                 </a>
-                <span class="tooltip">Files</span>
+                <span class="tooltip">Previuos Projects</span>
             </li>
             <li>
                 <a href="#">
-                    <i class='bx bx-cart-alt'></i>
-                    <span class="links_name">Order</span>
+                    <i class='bx bx-photo-album'></i>
+                    <span class="links_name">Gallery</span>
                 </a>
-                <span class="tooltip">Order</span>
+                <span class="tooltip">Gallery</span>
             </li>
             <li>
                 <a href="#">
@@ -94,8 +94,20 @@
     </div>
     <section class="home-section">
         <div class="text">Dashboard</div>
+
+        <section class="club-header">
+            <h1>Student Dev Club</h1>
+            <div class="doodle-background">
+                <img src="doodles/computer.png" alt="Computer Doodle" class="doodle" id="doodle-computer">
+                <img src="doodles/wifi.png" alt="WiFi Doodle" class="doodle" id="doodle-wifi">
+                <img src="doodles/github.png" alt="GitHub Doodle" class="doodle" id="doodle-github">
+                <!-- Add more doodle images as needed -->
+            </div>
+        </section>
+
     </section>
 
+    <script type="module" src="script.js"></script>
 </body>
 
 </html>
