@@ -245,13 +245,15 @@
 
 @media (max-width: 768px) {
     .sidebar {
-        left: -78px; /* Hide sidebar by default on mobile */
+        left: -78px;
+        /* Hide sidebar by default on mobile */
         width: 78px;
     }
 
     .sidebar.open {
         left: 0;
-        width: 240px; /* Slightly smaller when open on mobile */
+        width: 240px;
+        /* Slightly smaller when open on mobile */
     }
 
     /* Hamburger trigger for mobile */
@@ -273,7 +275,7 @@
         transition: all 0.5s ease;
     }
 
-    .sidebar.open ~ .mobile-trigger {
+    .sidebar.open~.mobile-trigger {
         left: 240px;
     }
 
@@ -283,10 +285,11 @@
         width: 100% !important;
     }
 
-    .sidebar.open ~ .home-section {
+    .sidebar.open~.home-section {
         left: 0 !important;
         width: 100% !important;
-        filter: brightness(0.8); /* Dim the main content when sidebar is open */
+        filter: brightness(0.8);
+        /* Dim the main content when sidebar is open */
     }
 
     /* Make sidebar overlay content instead of pushing it */
@@ -365,12 +368,15 @@
     0% {
         transform: translate(0, 0) rotate(0deg);
     }
+
     33% {
         transform: translate(15px, -15px) rotate(5deg);
     }
+
     66% {
         transform: translate(-15px, 15px) rotate(-5deg);
     }
+
     100% {
         transform: translate(0, 0) rotate(0deg);
     }
@@ -380,12 +386,15 @@
     0% {
         transform: translate(0, 0) rotate(0deg);
     }
+
     33% {
         transform: translate(-20px, -10px) rotate(-5deg);
     }
+
     66% {
         transform: translate(10px, 20px) rotate(5deg);
     }
+
     100% {
         transform: translate(0, 0) rotate(0deg);
     }
@@ -395,12 +404,15 @@
     0% {
         transform: translate(0, 0) rotate(0deg);
     }
+
     33% {
         transform: translate(25px, 10px) rotate(8deg);
     }
+
     66% {
         transform: translate(-15px, -20px) rotate(-8deg);
     }
+
     100% {
         transform: translate(0, 0) rotate(0deg);
     }

@@ -17,14 +17,14 @@ function menuBtnChange() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const sidebar = document.querySelector('.sidebar');
     const mobileTrigger = document.querySelector('.mobile-trigger');
-    
+
     if (mobileTrigger) { // Check if the element exists
         mobileTrigger.addEventListener('click', () => {
             sidebar.classList.toggle('open');
-            
+
             // Rotate arrow icon
             const icon = mobileTrigger.querySelector('i');
             if (sidebar.classList.contains('open')) {
