@@ -16,14 +16,14 @@ function menuBtnChange() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const sidebar = document.querySelector('.sidebar');
     const mobileTrigger = document.querySelector('.mobile-trigger');
-    
+
     if (mobileTrigger) { // Check if the element exists
         mobileTrigger.addEventListener('click', () => {
             sidebar.classList.toggle('open');
-            
+
             // Rotate arrow icon
             const icon = mobileTrigger.querySelector('i');
             if (sidebar.classList.contains('open')) {
@@ -94,7 +94,7 @@ const validateFormData = (name, phone, email) => {
 const checkExistingUser = async (email, phone) => {
     const emailQuery = query(collection(db, "users"), where("email", "==", email));
     const phoneQuery = query(collection(db, "users"), where("phone", "==", phone));
-    
+
     const [emailDocs, phoneDocs] = await Promise.all([
         getDocs(emailQuery),
         getDocs(phoneQuery)
@@ -136,7 +136,7 @@ document.getElementById("signupForm").addEventListener("submit", async (e) => {
     try {
         // Validate form data
         validateFormData(name, phone, email);
-        
+
         // Check for existing user
         await checkExistingUser(email, phone);
 
