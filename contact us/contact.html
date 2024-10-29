@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+          margin: 0;
+          font: normal 75% Arial, Helvetica, sans-serif;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+        }
+        canvas {
+          display: block;
+          vertical-align: bottom;
+        } /* ---- particles.js container ---- */
+        #particles-js {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background-color: #e4e9f7;
+          background-image: url("");
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: 50% 50%;
+        } /* ---- stats.js ---- */
+        
+        .js-count-particles {
+          font-size: 1.1em;
+        }
+        #stats,
+        .count-particles {
+          -webkit-user-select: none;
+          margin-top: 5px;
+          margin-left: 5px;
+        }
+        #stats {
+          border-radius: 3px 3px 0 0;
+          overflow: hidden;
+        }
+        .count-particles {
+          border-radius: 0 0 3px 3px;
+        }
+
+
+        .glass-card {
+    width: 800px;
+    height: 350px;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px); /* Blur effect for glassmorphism */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Border for glass effect */
+    text-align: center;
+    color:#11101d;
+    z-index: 1; /* Ensures it’s above the video */
+}
+
+.glass-card h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.contact-details {
+    text-align: center;
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.contact-details p {
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    color:#11101d;
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.contact-details a {
+    color: #11101d;
+    text-decoration: none;
+}
+
+.contact-details a:hover {
+    text-decoration: underline;
+}
+
+.glass-card button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #333;
+    background: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.glass-card button:hover {
+    background: #e6b800;
+}
+
+
+.coordinator-details {
+    display: flex; /* Use flexbox to arrange coordinators in a row */
+    justify-content: space-between; /* Space out coordinators */
+    margin-top: 20px; /* Spacing from the previous section */
+}
+
+.coordinator {
+    flex: 1; /* Ensure each coordinator takes equal space */
+    text-align: center; /* Center the text */
+}
+
+        </style>
+        
+</head>
+<body>
+    <!-- particles.js container -->
+<div id="particles-js"></div> <!-- stats - count particles -->
+<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib -->
+<script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+
+
+<!--FORM-->
+<div class="glass-card">
+    <h2>Contact Us</h2>
+    <div class="contact-details">
+        <p><i class="fas fa-envelope icon"></i><strong>Email:&nbsp;</strong> <a href="mailto:contact@example.com">contact@example.com</a></p>
+        <p><i class="fas fa-phone-alt icon"></i><strong>Phone:&nbsp;</strong> +1 (234) 567-891</p>
+        <p><i class="fas fa-globe icon"></i><strong>Website:&nbsp;</strong> <a href="https://www.example.com" target="_blank">www.example.com</a></p>
+        <p><i class="fab fa-instagram icon"></i> <strong>Instagram:&nbsp;</strong><a href="https://www.YouTube.com" target="_blank">contact@example.com</a></p>
+        <p><i class="fab fa-youtube icon"></i><strong> YouTube:&nbsp;</strong><a href="mailto:contact@example.com"  target="_blank">contact@example.com</a></p>
+        <p><i class="fas fa-map-marker-alt icon"></i><strong>Location:&nbsp;</strong>121 Rock Street, 21 Avenue, New York, NY 92103</p> 
+        <hr>  
+    </div>
+
+
+    <!-- Coordinator Section -->
+    <h2>Coordinators</h2>
+    <div class="coordinator-details">
+        <div class="coordinator">
+            <strong>Darshan</strong> <br> 987-654323
+        </div>
+        <div class="coordinator">
+            <strong>Ganesh</strong> <br> 678-901255
+        </div>
+        <div class="coordinator">
+            <strong>Harshan</strong> <br>789-012355
+        </div>
+    </div>
+</div>
+
+<script>
+particlesJS("particles-js", {
+    particles: {
+      number: { value: 173, density: { enable: true, value_area: 800 } },
+      color: { value: "#333333" },
+      shape: {
+        type: "circle",
+        stroke: { width: 0, color: "#000000" },
+        polygon: { nb_sides: 5 },
+        image: { src: "img/github.svg", width: 100, height: 100 }
+      },
+      opacity: {
+        value: 0.5,
+        random: false,
+        anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
+      },
+      size: {
+        value: 3,
+        random: true,
+        anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
+      },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: "#11101d",
+        opacity: 0.47980807676929244,
+        width: 1
+      },
+      move: {
+        enable: true,
+        speed: 6,
+        direction: "none",
+        random: false,
+        straight: false,
+        out_mode: "out",
+        bounce: false,
+        attract: { enable: false, rotateX: 600, rotateY: 1200 }
+      }
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: { enable: false, mode: "repulse" },
+        onclick: { enable: true, mode: "push" },
+        resize: true
+      },
+      modes: {
+        grab: { distance: 400, line_linked: { opacity: 1 } },
+        bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+        repulse: { distance: 200, duration: 0.4 },
+        push: { particles_nb: 4 },
+        remove: { particles_nb: 2 }
+      }
+    },
+    retina_detect: true
+  });
+  var count_particles, stats, update;
+  stats = new Stats();
+  stats.setMode(0);
+  stats.domElement.style.position = "absolute";
+  stats.domElement.style.left = "0px";
+  stats.domElement.style.top = "0px";
+  document.body.appendChild(stats.domElement);
+  count_particles = document.querySelector(".js-count-particles");
+  update = function () {
+    stats.begin();
+    stats.end();
+    if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+      count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+    }
+    requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+  
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
