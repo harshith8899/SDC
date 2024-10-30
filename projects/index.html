@@ -1,15 +1,149 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Projects</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Boxicons CDN Link -->
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel='stylesheet'>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
 
+        body {
+            background: #E5C8D4;  /* Similar to the pink/purple background in reference */
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .carousel-container {
+            width: 100%;
+            max-width: 1200px;
+            overflow: hidden;
+            position: relative;
+            padding: 20px;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            gap: 20px;
+        }
+
+        /* Browser window styling */
+        .browser-window {
+            min-width: 100%;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .browser-header {
+            background: #f5f5f5;
+            padding: 12px 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .page-indicator {
+            color: #666;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .browser-content {
+            padding: 40px;
+            background: white;
+            min-height: 500px;
+        }
+
+        /* Content styling */
+        .content-wrapper {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .content-left {
+            flex: 1;
+        }
+
+        .title-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .star {
+            color: #FF69B4;
+            font-size: 24px;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .highlight-box {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f8f8;
+            border-radius: 10px;
+        }
+
+        .content-right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            z-index: 10;
+        }
+
+        .prev { left: 0; }
+        .next { right: 0; }
+
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+            .browser-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
 <body>
     <div class="mobile-trigger">
         <i class='bx bx-chevron-right'></i>
@@ -75,22 +209,103 @@
             </li>
         </ul>
     </div>
-    <section class="home">
-        <h1>User Projects</h1>
-        <div class="project">
-            <h2>Project One</h2>
-            <p>Description for project one.</p>
-        </div>
-        <div class="project">
-            <h2>Project Two</h2>
-            <p>Description for project two.</p>
-        </div>
-        <div class="project">
-            <h2>Project Three</h2>
-            <p>Description for project three.</p>
-        </div>
-    </section>
-    <script type="module" src="script.js"></script>
-</body>
+    <div class="carousel-container">
+        <div class="carousel">
+            <!-- Project Card -->
+            <div class="browser-window">
+                <div class="browser-header">
+                    <div class="page-indicator">PAGE 1/5</div>
+                    <div>MERULLA</div>
+                </div>
+                <div class="browser-content">
+                    <div class="content-wrapper">
+                        <div class="content-left">
+                            <div class="title-section">
+                                <span class="star">★</span>
+                                <h2 class="title">~ Smart Campus</h2>
+                            </div>
+                            <div class="highlight-box">
+                                <h3>Highlight</h3>
+                                <p>A revolutionary campus management system built by students, for students. Integrating IoT sensors with mobile accessibility.</p>
+                            </div>
+                        </div>
+                        <div class="content-right">
+                            <img src="/api/placeholder/300/300" alt="Project Preview" class="profile-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <!-- AI Project Card -->
+            <div class="browser-window">
+                <div class="browser-header">
+                    <div class="page-indicator">PAGE 2/5</div>
+                    <div>MERULLA</div>
+                </div>
+                <div class="browser-content">
+                    <div class="content-wrapper">
+                        <div class="content-left">
+                            <div class="title-section">
+                                <span class="star">★</span>
+                                <h2 class="title">~ AI Assistant</h2>
+                            </div>
+                            <div class="highlight-box">
+                                <h3>Highlight</h3>
+                                <p>An AI-powered study assistant that helps students organize notes and create personalized study plans.</p>
+                            </div>
+                        </div>
+                        <div class="content-right">
+                            <img src="/api/placeholder/300/300" alt="AI Project" class="profile-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More cards with similar structure... -->
+        </div>
+        <button class="nav-button prev">←</button>
+        <button class="nav-button next">→</button>
+    </div>
+
+    <script>
+        const carousel = document.querySelector('.carousel');
+        const slides = document.querySelectorAll('.browser-window');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+        
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateCarousel();
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateCarousel();
+        });
+
+        // Touch support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        carousel.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        carousel.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) {
+                nextButton.click();
+            } else if (touchEndX - touchStartX > 50) {
+                prevButton.click();
+            }
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
 </html>
