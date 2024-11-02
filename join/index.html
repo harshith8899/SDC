@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Us</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <!-- Mobile Trigger -->
+    <div class="mobile-trigger">
+        <i class='bx bx-chevron-right'></i>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="logo-details">
+            <i class='bx bx-code-curly icon'></i>
+            <div class="logo_name">Club</div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <a href="../index.html">
+                    <i class='bx bx-home'></i>
+                    <span class="links_name">Home</span>
+                </a>
+                <span class="tooltip">Home</span>
+            </li>
+            <li>
+                <a href="../events/index.html">
+                    <i class='bx bx-calendar-event'></i>
+                    <span class="links_name">Events</span>
+                </a>
+                <span class="tooltip">Events</span>
+            </li>
+            <li>
+                <a href="../projects/index.html">
+                    <i class='bx bx-folder'></i>
+                    <span class="links_name">Projects</span>
+                </a>
+                <span class="tooltip">Projects</span>
+            </li>
+            <li>
+                <a href="../gallery/index.html">
+                    <i class='bx bx-photo-album'></i>
+                    <span class="links_name">Gallery</span>
+                </a>
+                <span class="tooltip">Gallery</span>
+            </li>
+            <li>
+                <a href="../about/index.html">
+                    <i class='bx bx-info-square'></i>
+                    <span class="links_name">About Us</span>
+                </a>
+                <span class="tooltip">About Us</span>
+            </li>
+            <li>
+                <a href="../contactus/index.html">
+                    <i class='bx bx-support'></i>
+                    <span class="links_name">Contact Us</span>
+                </a>
+                <span class="tooltip">Contact Us</span>
+            </li>
+            <li>
+                <a href="../join/index.html">
+                    <i class='bx bx-log-in-circle'></i>
+                    <span class="links_name">Join</span>
+                </a>
+                <span class="tooltip">Join</span>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        <div class="form_area">
+            <p class="title">Join Us</p>
+            <form id="signupForm">
+                <div class="form_group">
+                    <label class="sub_title" for="name">Name</label>
+                    <input placeholder="Enter your full name" id="name" class="form_style" type="text">
+                </div>
+                <div class="form_group inline">
+                    <div class="class-section">
+                        <label class="sub_title" for="class">Class</label>
+                        <select id="class" class="form_style">
+                            <option value="" selected disabled>Select Class</option> <!-- Placeholder option -->
+                            <option value="III BCA">III BCA</option>
+                            <option value="II BCA">II BCA</option>
+                            <option value="I BCA">I BCA</option>
+                        </select>
+                    </div>
+                    <div class="class-section">
+                        <label class="sub_title" for="section">Section</label>
+                        <select id="section" class="form_style">
+                            <option value="" selected disabled>Select Section</option> <!-- Placeholder option -->
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form_group">
+                    <label class="sub_title" for="phone">Phone Number</label>
+                    <input placeholder="Enter your phone number" id="phone" class="form_style" type="text">
+                </div>
+                <div class="form_group">
+                    <label class="sub_title" for="email">Email</label>
+                    <input placeholder="Enter your email" id="email" class="form_style" type="email">
+                </div>
+                <button class="btn" type="submit">SIGN UP</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal success-modal">
+        <div class="modal-content">
+            <div class="modal-icon">✓</div>
+            <h2 class="modal-title">Success!</h2>
+            <p class="modal-message">Your registration has been completed successfully.</p>
+            <button class="modal-btn" onclick="closeModal('successModal')">Continue</button>
+        </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div id="errorModal" class="modal error-modal">
+        <div class="modal-content">
+            <div class="modal-icon">✕</div>
+            <h2 class="modal-title">Error</h2>
+            <p id="errorMessage" class="modal-message">An error occurred during registration.</p>
+            <button class="modal-btn" onclick="closeModal('errorModal')">Try Again</button>
+        </div>
+    </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>

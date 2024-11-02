@@ -1,0 +1,2 @@
+Primary colour:#11101d ;
+Sceondary colour:#E4E9F7;
