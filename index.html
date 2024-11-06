@@ -9,110 +9,166 @@
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 
 <body>
+    <!-- Your existing HTML content remains unchanged until the terminal section -->
     <div class="mobile-trigger">
         <i class='bx bx-chevron-right'></i>
     </div>
-    <div class="sidebar">
-        <div class="logo-details">
-            <i class='bx bx-code-curly icon'></i>
-            <div class="logo_name">Club</div>
-            <i class='bx bx-menu' id="btn"></i>
-        </div>
-        <ul class="nav-list">
-            <!--
-            <li>
-                <i class='bx bx-search'></i>
-                <input type="text" placeholder="Search...">
-                <span class="tooltip">Search</span>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-grid-alt'></i>
-                    <span class="links_name">Dashboard</span>
-                </a>
-                <span class="tooltip">Dashboard</span>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-chat'></i>
-                    <span class="links_name">Messages</span>
-                </a>
-                <span class="tooltip">Messages</span>
-            </li>
-            --->
-            <li>
-                <a href="#">
-                    <i class='bx bx-home'></i>
-                    <span class="links_name">Home</span>
-                </a>
-                <span class="tooltip">Home</span>
-            </li>
-            
-            <li>
-                <a href="events/index.html">
-                    <i class='bx bx-calendar-event'></i>
-                    <span class="links_name">Events</span>
-                </a>
-                <span class="tooltip">Events</span>
-            </li>
-            <li>
-                <a href="projects/index.html">
-                    <i class='bx bx-folder'></i>
-                    <span class="links_name">Projects</span>
-                </a>
-                <span class="tooltip">Projects</span>
-            </li>
-            <li>
-                <li>
-                    <a href="gallery/index.html">
-                        <i class='bx bx-photo-album'></i>
-                        <span class="links_name">Gallery</span>
-                    </a>
-                    <span class="tooltip">Gallery</span>
-                </li>
-                
-            <li>
-                <a href="about/index.html">
-                    <i class='bx bx-info-square'></i>
-                    <span class="links_name">About Us</span>
-                </a>
-                <span class="tooltip">About Us</span>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-support'></i>
-                    <span class="links_name">Contact Us</span>
-                </a>
-                <span class="tooltip">Contact Us</span>
-            </li>
-            <li>
-                <a href="join/index.html">
-                    <i class='bx bx-log-in-circle'></i>
-                    <span class="links_name">Join</span>
-                </a>
-                <span class="tooltip">Join</span>
-            </li>
-        </ul>
-    </div>
+    <!-- ... rest of your existing HTML ... -->
     <section class="home-section">
         <div class="text">Dashboard</div>
-
+        
         <section class="club-header">
             <h1>Student Dev Club</h1>
             <div class="doodle-background">
                 <img src="doodles/computer.png" alt="Computer Doodle" class="doodle" id="doodle-computer">
                 <img src="doodles/wifi.png" alt="WiFi Doodle" class="doodle" id="doodle-wifi">
                 <img src="doodles/github.png" alt="GitHub Doodle" class="doodle" id="doodle-github">
-                <!-- Add more doodle images as needed -->
             </div>
         </section>
-
+        <div class="container">
+            <div class="terminal_toolbar">
+                <div class="butt">
+                    <button class="btn btn-color"></button>
+                    <button class="btn"></button>
+                    <button class="btn"></button>
+                </div>
+                <div class="add_tab">+</div>
+            </div>
+            <div class="terminal_body" id="terminal">
+                <div class="terminal-line">Welcome to Student Dev Club Terminal v1.0</div>
+                <div class="terminal-line">Type 'help' for available commands.</div>
+                <div class="terminal_promt">
+                    <span class="terminal_user">student@devclub:</span>
+                    <span class="terminal_location">~</span>
+                    <span class="terminal_bling">$</span>
+                    <input type="text" id="terminal-input" autofocus>
+                    <span class="terminal_cursor"></span>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <script type="module" src="script.js"></script>
+    <script>
+        const terminal = document.getElementById('terminal');
+        const input = document.getElementById('terminal-input');
+        
+        // Command history
+        let history = [];
+        let historyIndex = -1;
+
+        // Available commands
+        const commands = {
+            help: () => 'Available commands: help, clear, echo, date, whoami, projects, events',
+            clear: () => {
+                terminal.innerHTML = '';
+                return '';
+            },
+            echo: (args) => args,
+            date: () => new Date().toString(),
+            whoami: () => 'student@devclub',
+            projects: () => 'Current projects:\n- Web Development\n- Mobile App\n- Machine Learning',
+            events: () => 'Upcoming events:\n- Coding Workshop (Next Friday)\n- Hackathon (Next Month)\n- Tech Talk (TBA)'
+        };
+
+        // Create new prompt line
+        function createPrompt() {
+            const promptLine = document.createElement('div');
+            promptLine.className = 'terminal_promt';
+            promptLine.innerHTML = `
+                <span class="terminal_user">student@devclub:</span>
+                <span class="terminal_location">~</span>
+                <span class="terminal_bling">$</span>
+                <input type="text" id="terminal-input" autofocus>
+                <span class="terminal_cursor"></span>
+            `;
+            return promptLine;
+        }
+
+        // Add output to terminal
+        function addOutput(text) {
+            const line = document.createElement('div');
+            line.className = 'terminal-line';
+            line.textContent = text;
+            terminal.appendChild(line);
+            terminal.scrollTop = terminal.scrollHeight;
+        }
+
+        // Handle command execution
+        function executeCommand(cmdString) {
+            const args = cmdString.trim().split(' ');
+            const cmd = args.shift().toLowerCase();
+            
+            if (cmd === '') return null;
+            
+            if (commands.hasOwnProperty(cmd)) {
+                return commands[cmd](args.join(' '));
+            } else {
+                return `Command not found: ${cmd}`;
+            }
+        }
+
+        // Handle input
+        document.addEventListener('click', () => {
+            const currentInput = document.getElementById('terminal-input');
+            if (currentInput) {
+                currentInput.focus();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            const currentInput = document.getElementById('terminal-input');
+            if (!currentInput) return;
+
+            if (e.key === 'Enter') {
+                const cmdString = currentInput.value;
+                
+                // Add command to history
+                const commandLine = document.createElement('div');
+                commandLine.className = 'terminal-line';
+                commandLine.textContent = `student@devclub:~$ ${cmdString}`;
+                terminal.appendChild(commandLine);
+
+                // Execute command and show output
+                const result = executeCommand(cmdString);
+                if (result) {
+                    addOutput(result);
+                }
+
+                // Add to history
+                history.push(cmdString);
+                historyIndex = history.length;
+
+                // Remove old prompt
+                currentInput.parentElement.remove();
+
+                // Add new prompt
+                terminal.appendChild(createPrompt());
+                document.getElementById('terminal-input').focus();
+            }
+            // Command history navigation
+            else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (historyIndex > 0) {
+                    historyIndex--;
+                    currentInput.value = history[historyIndex];
+                }
+            }
+            else if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (historyIndex < history.length - 1) {
+                    historyIndex++;
+                    currentInput.value = history[historyIndex];
+                } else {
+                    historyIndex = history.length;
+                    currentInput.value = '';
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>

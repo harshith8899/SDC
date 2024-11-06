@@ -1,62 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events | </title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Card Redirection</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="scripts.js"></script>
 </head>
 <body>
-    <div class="wrap">
-        <div class="line">
-          <div class="left">
-            <div class="content">
-              <span class="spanSlow">More</span>
-            </div>
-          </div><!--
-          --><div class="right">
-            <div class="content">
-              <span class="spanSlow">More</span>
-            </div>
-          </div>
-        </div>
-        <div class="line">
-          <div class="left">
-            <div class="content">
-              <span class="spanSlow">Events</span>
-            </div>
-          </div><!--
-          --><div class="right">
-            <div class="content">
-              <span class="spanSlow">Events</span>
-            </div>
-          </div>
-          </div>
-          <div class="line">
-              <div class="left">
-                <div class="content">
-                  <span class="spanFast">coming</span>
-                </div>
-              </div><!--
-              --><div class="right">
-                <div class="content">
-                  <span class="spanFast">coming</span>
-                </div>
-              </div>
-            </div>
-            <div class="line">
-                <div class="left">
-                  <div class="content">
-                    <span class="spanSlow">soon</span>
-                  </div>
-                </div><!--
-                --><div class="right">
-                  <div class="content">
-                    <span class="spanSlow">soon</span>
-                  </div>
-                </div>
-              </div>
+  <div class="container">
+    <div class="card">
+        <img class="background" src="asstes/01.webp" alt="Card 1" onclick="alert('clicked')">
+      <div class="card-content"></div>
+      <div class="backdrop"></div>
     </div>
-    <script src="script.js"></script>
+
+    <div class="card">
+        <img class="background" src="asstes/02.jpg" alt="Card 2" onclick="direct('../page2.html')">
+      <div class="card-content"></div>
+      <div class="backdrop"></div>
+    </div>
+  </div>
+
+  <script>
+    function direct(url) {
+      // Log the redirection action
+      console.log("Image clicked! Redirecting to " + url);
+
+      // Redirect to the specified URL
+      window.location.href = url;
+    }
+  </script>
 </body>
 </html>
