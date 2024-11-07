@@ -1,23 +1,13 @@
-window.addEventListener('mousemove', handleMouseMove);
-window.addEventListener('resize', handleWindowResize);
 
-const spansSlow = document.querySelectorAll('.spanSlow');
-const spansFast = document.querySelectorAll('.spanFast');
+const cardsContainer = document.querySelector(".container");
 
-let width = window.innerWidth;
+cardsContainer.addEventListener("click", (e) => {
+  const target = e.target.closest(".card");
 
-function handleMouseMove(e) {
-  let normalizedPosition = e.pageX/(width/2) - 1;
-  let speedSlow = 100 * normalizedPosition;
-  let speedFast = 200 * normalizedPosition;
-  spansSlow.forEach((span) => {
-    span.style.transform = `translate(${speedSlow}px)`;
+
   });
-  spansFast.forEach((span) => {
-    span.style.transform = `translate(${speedFast}px)`
-  })
-}
-//we need to recalculate width when the window is resized
-function handleWindowResize() {
-  width = window.innerWidth;
-}
+
+  target.classList.add("active");
+});
+
+ 
