@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel='stylesheet'>
+  <link rel="stylesheet" href="./style.css">
+  <script src="scripts.js"></script>
 
   <style>
     body {
@@ -60,7 +63,7 @@
 
     .glass-card {
       width: 800px;
-      height: 350px;
+      height: 380px;
       padding: 20px;
       border-radius: 15px;
       background: rgba(255, 255, 255, 0.1);
@@ -145,6 +148,70 @@
 </head>
 
 <body>
+  <div class="mobile-trigger">
+        <i class='bx bx-chevron-right'></i>
+    </div>
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bx-code-curly icon'></i>
+            <div class="logo_name">Club</div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <a href="./index.html">
+                    <i class='bx bx-home'></i>
+                    <span class="links_name">Home</span>
+                </a>
+                <span class="tooltip">Home</span>
+            </li>
+
+            <li>
+                <a href="events/index.html">
+                    <i class='bx bx-calendar-event'></i>
+                    <span class="links_name">Events</span>
+                </a>
+                <span class="tooltip">Events</span>
+            </li>
+            <li>
+                <a href="projects/index.html">
+                    <i class='bx bx-folder'></i>
+                    <span class="links_name">Projects</span>
+                </a>
+                <span class="tooltip">Projects</span>
+            </li>
+            <li>
+            <li>
+                <a href="gallery/index.html">
+                    <i class='bx bx-photo-album'></i>
+                    <span class="links_name">Gallery</span>
+                </a>
+                <span class="tooltip">Gallery</span>
+            </li>
+
+            <li>
+                <a href="about/index.html">
+                    <i class='bx bx-info-square'></i>
+                    <span class="links_name">About Us</span>
+                </a>
+                <span class="tooltip">About Us</span>
+            </li>
+            <li>
+                <a href="contactus/index.html">
+                    <i class='bx bx-support'></i>
+                    <span class="links_name">Contact Us</span>
+                </a>
+                <span class="tooltip">Contact Us</span>
+            </li>
+            <li>
+                <a href="join/index.html">
+                    <i class='bx bx-log-in-circle'></i>
+                    <span class="links_name">Join</span>
+                </a>
+                <span class="tooltip">Join</span>
+            </li>
+        </ul>
+    </div>
   <!-- particles.js container -->
   <div id="particles-js"></div>
   <!-- stats - count particles -->
@@ -179,6 +246,10 @@
       <p>
         <i class="fas fa-map-marker-alt icon"></i><strong>Location:&nbsp;</strong>121 Rock Street, 21 Avenue, New York,
         NY 92103
+      </p>
+      <p>
+      <i class="fab fa-discord icon"></i><strong>Discord:&nbsp;</strong><a href="https://discord.gg/gj8JZ9W2"
+      target="_blank">contact@example.com</a>
       </p>
       <hr />
     </div>
