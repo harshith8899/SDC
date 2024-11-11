@@ -80,6 +80,18 @@
       z-index: 1;
       /* Ensures it’s above the video */
     }
+    .icon-container {
+    display: flex;
+    justify-content: center; /* Aligns the icons in the center */
+    gap: 260px; /* Adds space between the icons */
+    padding: 20px;
+}
+
+.icon {
+    font-size: 48px;
+}
+
+    
 
     .glass-card h2 {
       font-size: 1.5em;
@@ -103,6 +115,7 @@
       color: #11101d;
       margin-right: 10px;
       font-size: 1.2em;
+    
     }
 
     .contact-details a {
@@ -159,7 +172,7 @@
         </div>
         <ul class="nav-list">
             <li>
-                <a href="./index.html">
+                <a href="../index.html">
                     <i class='bx bx-home'></i>
                     <span class="links_name">Home</span>
                 </a>
@@ -167,14 +180,14 @@
             </li>
 
             <li>
-                <a href="events/index.html">
+                <a href="../events/index.html">
                     <i class='bx bx-calendar-event'></i>
                     <span class="links_name">Events</span>
                 </a>
                 <span class="tooltip">Events</span>
             </li>
             <li>
-                <a href="projects/index.html">
+                <a href="../projects/index.html">
                     <i class='bx bx-folder'></i>
                     <span class="links_name">Projects</span>
                 </a>
@@ -182,7 +195,7 @@
             </li>
             <li>
             <li>
-                <a href="gallery/index.html">
+                <a href="../gallery/index.html">
                     <i class='bx bx-photo-album'></i>
                     <span class="links_name">Gallery</span>
                 </a>
@@ -190,21 +203,21 @@
             </li>
 
             <li>
-                <a href="about/index.html">
+                <a href="../about/index.html">
                     <i class='bx bx-info-square'></i>
                     <span class="links_name">About Us</span>
                 </a>
                 <span class="tooltip">About Us</span>
             </li>
             <li>
-                <a href="contactus/index.html">
+                <a href="../contactus/index.html">
                     <i class='bx bx-support'></i>
                     <span class="links_name">Contact Us</span>
                 </a>
                 <span class="tooltip">Contact Us</span>
             </li>
             <li>
-                <a href="join/index.html">
+                <a href="../join/index.html">
                     <i class='bx bx-log-in-circle'></i>
                     <span class="links_name">Join</span>
                 </a>
@@ -228,29 +241,21 @@
         <a href="mailto:contact@example.com">contact@example.com</a>
       </p>
       <p>
-        <i class="fas fa-phone-alt icon"></i><strong>Phone:&nbsp;</strong> +1
-        (234) 567-891
-      </p>
-      <p>
         <i class="fas fa-globe icon"></i><strong>Website:&nbsp;</strong>
         <a href="https://www.example.com" target="_blank">www.example.com</a>
       </p>
-      <p>
-        <i class="fab fa-instagram icon"></i> <strong>Instagram:&nbsp;</strong><a href="https://www.YouTube.com"
-          target="_blank">contact@example.com</a>
-      </p>
-      <p>
-        <i class="fab fa-youtube icon"></i><strong> YouTube:&nbsp;</strong><a href="mailto:contact@example.com"
-          target="_blank">contact@example.com</a>
-      </p>
-      <p>
-        <i class="fas fa-map-marker-alt icon"></i><strong>Location:&nbsp;</strong>121 Rock Street, 21 Avenue, New York,
-        NY 92103
-      </p>
-      <p>
-      <i class="fab fa-discord icon"></i><strong>Discord:&nbsp;</strong><a href="https://discord.gg/gj8JZ9W2"
-      target="_blank">contact@example.com</a>
-      </p>
+      <div class="icon-container">
+    <a href="https://www.youtube.com" target="_blank">
+        <i class="fab fa-instagram icon" style="font-size: 48px;"></i>
+    </a>
+    <a href="https://www.youtube.com" target="_blank">
+        <i class="fab fa-youtube icon" style="font-size: 48px;"></i>
+    </a>
+    <a href="https://www.youtube.com" target="_blank">
+        <i class="fab fa-discord icon" style="font-size: 48px;"></i>
+    </a>
+</div>
+
       <hr />
     </div>
 
