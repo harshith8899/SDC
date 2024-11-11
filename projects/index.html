@@ -12,7 +12,7 @@
         }
 
         body {
-            background: #E5C8D4;  /* Similar to the pink/purple background in reference */
+            background: #E4E9F7;  /* Similar to the pink/purple background in reference */
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -51,6 +51,24 @@
             justify-content: space-between;
             align-items: center;
         }
+
+        .traffic-lights {
+            display: flex;
+            gap: 8px;
+            position: absolute;
+            left: 3px;
+        }
+    
+        .traffic-light {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+    
+        .traffic-light.red { background-color: #ff5f56; }
+        .traffic-light.yellow { background-color: #ffbd2e; }
+        .traffic-light.green { background-color: #27c93f; }
+    
 
         .page-indicator {
             color: #666;
@@ -214,7 +232,12 @@
             <!-- Project Card -->
             <div class="browser-window">
                 <div class="browser-header">
-                    <div class="page-indicator">PAGE 1/5</div>
+                    <div class="traffic-lights">
+                        <div class="traffic-light red"></div>
+                        <div class="traffic-light yellow"></div>
+                        <div class="traffic-light green"></div>
+                    </div>
+                    <div class="page-indicator"></div>
                     <div>MERULLA</div>
                 </div>
                 <div class="browser-content">
@@ -222,15 +245,23 @@
                         <div class="content-left">
                             <div class="title-section">
                                 <span class="star">★</span>
-                                <h2 class="title">~ Smart Campus</h2>
+                                <h2 class="title">~ Incognito Website 2024</h2>
                             </div>
                             <div class="highlight-box">
                                 <h3>Highlight</h3>
-                                <p>A revolutionary campus management system built by students, for students. Integrating IoT sensors with mobile accessibility.</p>
+                                <p>Website for the Inter-College Tech Fest Incognito 2024.</p>
+                            </div>
+                            <div class="highlight-box">
+                                <h3>By</h3>
+                                <p>Himateju V & Harshith S</p>
+                            </div>
+                            <div class="highlight-box">
+                                <h3>Website Link</h3>
+                                <a href="https://incognito-2024.pages.dev/">incognito-2024</a>
                             </div>
                         </div>
                         <div class="content-right">
-                            <img src="/api/placeholder/300/300" alt="Project Preview" class="profile-image">
+                            <img src="assets/incognito.png" alt="Project Preview" class="profile-image">
                         </div>
                     </div>
                 </div>
