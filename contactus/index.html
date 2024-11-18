@@ -2,153 +2,155 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel='stylesheet'>
-  <link rel="stylesheet" href="./style.css">
-  <script src="scripts.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel='stylesheet'>
+    <link rel="stylesheet" href="./style.css">
+    <script src="scripts.js"></script>
 
-  <style>
-    body {
-      margin: 0;
-      font: normal 75% Arial, Helvetica, sans-serif;
-      height: 100vh;
-      width: 100vw;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    <style>
+        body {
+            margin: 0;
+            font: normal 75% Arial, Helvetica, sans-serif;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    canvas {
-      display: block;
-      vertical-align: bottom;
-    }
+        canvas {
+            display: block;
+            vertical-align: bottom;
+        }
 
-    /* ---- particles.js container ---- */
-    #particles-js {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-color: #e4e9f7;
-      background-image: url("");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: 50% 50%;
-    }
+        /* ---- particles.js container ---- */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #e4e9f7;
+            background-image: url("");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 50% 50%;
+        }
 
-    /* ---- stats.js ---- */
+        /* ---- stats.js ---- */
+        .js-count-particles {
+            font-size: 1.1em;
+        }
 
-    .js-count-particles {
-      font-size: 1.1em;
-    }
+        #stats,
+        .count-particles {
+            -webkit-user-select: none;
+            margin-top: 5px;
+            margin-left: 5px;
+        }
 
-    #stats,
-    .count-particles {
-      -webkit-user-select: none;
-      margin-top: 5px;
-      margin-left: 5px;
-    }
+        #stats {
+            border-radius: 3px 3px 0 0;
+            overflow: hidden;
+        }
 
-    #stats {
-      border-radius: 3px 3px 0 0;
-      overflow: hidden;
-    }
+        .count-particles {
+            border-radius: 0 0 3px 3px;
+        }
 
-    .count-particles {
-      border-radius: 0 0 3px 3px;
-    }
+        .glass-card {
+            width: 800px;
+            height: 380px;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            color: #11101d;
+            z-index: 1;
+        }
 
-    .glass-card {
-      width: 800px;
-      height: 380px;
-      padding: 20px;
-      border-radius: 15px;
-      background: rgba(255, 255, 255, 0.1);
-      /* Semi-transparent white */
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(10px);
-      /* Blur effect for glassmorphism */
-      -webkit-backdrop-filter: blur(10px);
-      /* Safari support */
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      /* Border for glass effect */
-      text-align: center;
-      color: #11101d;
-      z-index: 1;
-      /* Ensures it’s above the video */
-    }
+        .glass-card h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
 
-    .glass-card h2 {
-      font-size: 1.5em;
-      margin-bottom: 10px;
-    }
+        .email-section {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-    .contact-details {
-      text-align: center;
-      font-size: 1em;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
+        .email-section a {
+            color: #11101d;
+            text-decoration: none;
+        }
 
-    .contact-details p {
-      margin: 8px 0;
-      display: flex;
-      align-items: center;
-    }
+        .email-section a:hover {
+            text-decoration: underline;
+        }
 
-    .icon {
-      color: #11101d;
-      margin-right: 10px;
-      font-size: 1.2em;
-    }
+        /* New Social Media Row Styles */
+        .social-media-row {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            
+            margin: 30px 0;
+        }
 
-    .contact-details a {
-      color: #11101d;
-      text-decoration: none;
-    }
+        .social-icon {
+            font-size: 4.5em;
+            color: #11101d;
+            transition: all 0.3s ease;
+        }
 
-    .contact-details a:hover {
-      text-decoration: underline;
-    }
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
 
-    .glass-card button {
-      padding: 10px 20px;
-      font-size: 1em;
-      color: #333;
-      background: #ffcc00;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-    }
+        .social-icon.fa-instagram:hover {
+            color: #E1306C;
+        }
 
-    .glass-card button:hover {
-      background: #e6b800;
-    }
+        .social-icon.fa-youtube:hover {
+            color: #FF0000;
+        }
 
-    .coordinator-details {
-      display: flex;
-      /* Use flexbox to arrange coordinators in a row */
-      justify-content: space-between;
-      /* Space out coordinators */
-      margin-top: 20px;
-      /* Spacing from the previous section */
-    }
+        .social-icon.fa-discord:hover {
+            color: #7289DA;
+        }
 
-    .coordinator {
-      flex: 1;
-      /* Ensure each coordinator takes equal space */
-      text-align: center;
-      /* Center the text */
-    }
-  </style>
+        .social-icon.fa-linkedin:hover {
+            color: #0077B5;
+        }
+
+        .coordinator-details {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            font-size: 2vh;
+        }
+
+        .coordinator {
+            flex: 1;
+            text-align: center;
+        }
+
+        hr {
+            margin: 20px 0;
+            border: none;
+            border-top: 1px solid rgba(17, 16, 29, 0.2);
+        }
+    </style>
 </head>
 
 <body>
-  <div class="mobile-trigger">
+    <div class="mobile-trigger">
         <i class='bx bx-chevron-right'></i>
     </div>
     <div class="sidebar">
@@ -159,52 +161,49 @@
         </div>
         <ul class="nav-list">
             <li>
-                <a href="./index.html">
+                <a href="../index.html">
                     <i class='bx bx-home'></i>
                     <span class="links_name">Home</span>
                 </a>
                 <span class="tooltip">Home</span>
             </li>
-
             <li>
-                <a href="events/index.html">
+                <a href="../events/index.html">
                     <i class='bx bx-calendar-event'></i>
                     <span class="links_name">Events</span>
                 </a>
                 <span class="tooltip">Events</span>
             </li>
             <li>
-                <a href="projects/index.html">
+                <a href="../projects/index.html">
                     <i class='bx bx-folder'></i>
                     <span class="links_name">Projects</span>
                 </a>
                 <span class="tooltip">Projects</span>
             </li>
             <li>
-            <li>
-                <a href="gallery/index.html">
+                <a href="../gallery/index.html">
                     <i class='bx bx-photo-album'></i>
                     <span class="links_name">Gallery</span>
                 </a>
                 <span class="tooltip">Gallery</span>
             </li>
-
             <li>
-                <a href="about/index.html">
+                <a href="../about/index.html">
                     <i class='bx bx-info-square'></i>
                     <span class="links_name">About Us</span>
                 </a>
                 <span class="tooltip">About Us</span>
             </li>
             <li>
-                <a href="contactus/index.html">
+                <a href="../contactus/index.html">
                     <i class='bx bx-support'></i>
                     <span class="links_name">Contact Us</span>
                 </a>
                 <span class="tooltip">Contact Us</span>
             </li>
             <li>
-                <a href="join/index.html">
+                <a href="../join/index.html">
                     <i class='bx bx-log-in-circle'></i>
                     <span class="links_name">Join</span>
                 </a>
@@ -212,147 +211,140 @@
             </li>
         </ul>
     </div>
-  <!-- particles.js container -->
-  <div id="particles-js"></div>
-  <!-- stats - count particles -->
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <!-- stats.js lib -->
-  <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
 
-  <!--FORM-->
-  <div class="glass-card">
-    <h2>Contact Us</h2>
-    <div class="contact-details">
-      <p>
-        <i class="fas fa-envelope icon"></i><strong>Email:&nbsp;</strong>
-        <a href="mailto:contact@example.com">contact@example.com</a>
-      </p>
-      <p>
-        <i class="fas fa-phone-alt icon"></i><strong>Phone:&nbsp;</strong> +1
-        (234) 567-891
-      </p>
-      <p>
-        <i class="fas fa-globe icon"></i><strong>Website:&nbsp;</strong>
-        <a href="https://www.example.com" target="_blank">www.example.com</a>
-      </p>
-      <p>
-        <i class="fab fa-instagram icon"></i> <strong>Instagram:&nbsp;</strong><a href="https://www.YouTube.com"
-          target="_blank">contact@example.com</a>
-      </p>
-      <p>
-        <i class="fab fa-youtube icon"></i><strong> YouTube:&nbsp;</strong><a href="mailto:contact@example.com"
-          target="_blank">contact@example.com</a>
-      </p>
-      <p>
-        <i class="fas fa-map-marker-alt icon"></i><strong>Location:&nbsp;</strong>121 Rock Street, 21 Avenue, New York,
-        NY 92103
-      </p>
-      <p>
-      <i class="fab fa-discord icon"></i><strong>Discord:&nbsp;</strong><a href="https://discord.gg/gj8JZ9W2"
-      target="_blank">contact@example.com</a>
-      </p>
-      <hr />
+    <!-- particles.js container -->
+    <div id="particles-js"></div>
+
+    <!--FORM-->
+    <div class="glass-card">
+        <h2>Contact Us</h2>
+        
+        <!-- Email Section -->
+        <div class="email-section">
+            <p>
+                <i class="fas fa-envelope"></i>
+                <strong>Email:&nbsp;</strong>
+                <a href="mailto:chathuryasdc@gmail.com">chathuryasdc@gmail.com</a>
+            </p>
+        </div>
+
+        <!-- Social Media Icons Row -->
+        <div class="social-media-row">
+            <a href="https://instagram.com/your_handle" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-instagram social-icon"></i>
+            </a>
+            <a href="https://youtube.com/your_channel" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-youtube social-icon"></i>
+            </a>
+            <a href="https://discord.gg/your_server" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-discord social-icon"></i>
+            </a>
+            <a href="https://linkedin.com/in/your_profile" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin social-icon"></i>
+            </a>
+        </div>
+
+        <hr />
+
+        <!-- Coordinator Section -->
+        <h2>Coordinators</h2>
+        <div class="coordinator-details">
+            <div class="coordinator">
+                <strong>Coordinator 1</strong><br />
+                987-654323
+            </div>
+            <div class="coordinator">
+                <strong>Coordinator 2</strong><br />
+                678-901255
+            </div>
+            
+        </div>
     </div>
 
-    <!-- Coordinator Section -->
-    <h2>Coordinators</h2>
-    <div class="coordinator-details">
-      <div class="coordinator">
-        <strong>Darshan</strong> <br />
-        987-654323
-      </div>
-      <div class="coordinator">
-        <strong>Ganesh</strong> <br />
-        678-901255
-      </div>
-      <div class="coordinator"><strong>Harshan</strong> <br />789-012355</div>
-    </div>
-  </div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
 
-  <script>
-    particlesJS("particles-js", {
-      particles: {
-        number: { value: 173, density: { enable: true, value_area: 800 } },
-        color: { value: "#333333" },
-        shape: {
-          type: "circle",
-          stroke: { width: 0, color: "#000000" },
-          polygon: { nb_sides: 5 },
-          image: { src: "img/github.svg", width: 100, height: 100 },
-        },
-        opacity: {
-          value: 0.5,
-          random: false,
-          anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false },
-        },
-        size: {
-          value: 3,
-          random: true,
-          anim: { enable: false, speed: 40, size_min: 0.1, sync: false },
-        },
-        line_linked: {
-          enable: true,
-          distance: 150,
-          color: "#11101d",
-          opacity: 0.47980807676929244,
-          width: 1,
-        },
-        move: {
-          enable: true,
-          speed: 6,
-          direction: "none",
-          random: false,
-          straight: false,
-          out_mode: "out",
-          bounce: false,
-          attract: { enable: false, rotateX: 600, rotateY: 1200 },
-        },
-      },
-      interactivity: {
-        detect_on: "canvas",
-        events: {
-          onhover: { enable: false, mode: "repulse" },
-          onclick: { enable: true, mode: "push" },
-          resize: true,
-        },
-        modes: {
-          grab: { distance: 400, line_linked: { opacity: 1 } },
-          bubble: {
-            distance: 400,
-            size: 40,
-            duration: 2,
-            opacity: 8,
-            speed: 3,
-          },
-          repulse: { distance: 200, duration: 0.4 },
-          push: { particles_nb: 4 },
-          remove: { particles_nb: 2 },
-        },
-      },
-      retina_detect: true,
-    });
-    var count_particles, stats, update;
-    stats = new Stats();
-    stats.setMode(0);
-    stats.domElement.style.position = "absolute";
-    stats.domElement.style.left = "0px";
-    stats.domElement.style.top = "0px";
-    document.body.appendChild(stats.domElement);
-    count_particles = document.querySelector(".js-count-particles");
-    update = function () {
-      stats.begin();
-      stats.end();
-      if (
-        window.pJSDom[0].pJS.particles &&
-        window.pJSDom[0].pJS.particles.array
-      ) {
-        count_particles.innerText =
-          window.pJSDom[0].pJS.particles.array.length;
-      }
-      requestAnimationFrame(update);
-    };
-    requestAnimationFrame(update);
-  </script>
+    <script>
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 173, density: { enable: true, value_area: 800 } },
+                color: { value: "#333333" },
+                shape: {
+                    type: "circle",
+                    stroke: { width: 0, color: "#000000" },
+                    polygon: { nb_sides: 5 },
+                    image: { src: "img/github.svg", width: 100, height: 100 },
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false,
+                    anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false },
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: { enable: false, speed: 40, size_min: 0.1, sync: false },
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#11101d",
+                    opacity: 0.47980807676929244,
+                    width: 1,
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+                    attract: { enable: false, rotateX: 600, rotateY: 1200 },
+                },
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: false, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true,
+                },
+                modes: {
+                    grab: { distance: 400, line_linked: { opacity: 1 } },
+                    bubble: {
+                        distance: 400,
+                        size: 40,
+                        duration: 2,
+                        opacity: 8,
+                        speed: 3,
+                    },
+                    repulse: { distance: 200, duration: 0.4 },
+                    push: { particles_nb: 4 },
+                    remove: { particles_nb: 2 },
+                },
+            },
+            retina_detect: true,
+        });
+
+        var count_particles, stats, update;
+        stats = new Stats();
+        stats.setMode(0);
+        stats.domElement.style.position = "absolute";
+        stats.domElement.style.left = "0px";
+        stats.domElement.style.top = "0px";
+        document.body.appendChild(stats.domElement);
+        count_particles = document.querySelector(".js-count-particles");
+        update = function () {
+            stats.begin();
+            stats.end();
+            if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+                count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+            }
+            requestAnimationFrame(update);
+        };
+        requestAnimationFrame(update);
+    </script>
 </body>
 
 </html>
