@@ -199,6 +199,7 @@
 
 .home-section {
     position: relative;
+    justify-content: space-between;
     background: #E4E9F7;
     min-height: 100vh;
     top: 0;
@@ -274,7 +275,18 @@
         z-index: 100;
         transition: all 0.5s ease;
     }
-
+    @media (min-width: 768px) {
+        .mobile-trigger {
+            visibility: hidden;
+        }
+    }
+    
+    @media (max-width: 767px) {
+        .mobile-trigger {
+            visibility: visible;
+        }
+    }
+    
     .sidebar.open~.mobile-trigger {
         left: 240px;
     }
@@ -424,241 +436,204 @@
     opacity: 0.5;
 }
 
-
-/* From Uiverse.io by Kemboi-Dun */ 
 .container {
     width: 100%;
     height: 250px;
   }
   
-  .terminal_toolbar {
+  /* Terminal Container */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: #1a1b1f;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* Terminal Toolbar */
+.terminal_toolbar {
     display: flex;
-    height: 30px;
-    align-items: center;
-    padding: 0 8px;
-    box-sizing: border-box;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    background: #212121;
     justify-content: space-between;
-  }
-  
-  .butt {
-    display: flex;
     align-items: center;
-  }
-  
-  .btn {
+    height: 30px;
+    padding: 0 8px;
+    background: #2b2b2b;
+    border-radius: 8px 8px 0 0;
+}
+
+/* Button Group */
+.butt {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    gap: 8px;
+}
+
+.btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
     padding: 0;
     margin-right: 5px;
-    font-size: 8px;
-    height: 12px;
-    width: 12px;
-    box-sizing: border-box;
-    border: none;
-    border-radius: 100%;
-    background: linear-gradient(#7d7871 0%, #595953 100%);
-    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2);
-    box-shadow: 0px 0px 1px 0px #41403A, 0px 1px 1px 0px #474642;
-  }
-  
-  .btn-color {
-    background: #ee411a;
-  }
-  
-  .btn:hover {
-    cursor: pointer;
-  }
-  
-  .btn:focus {
-    outline: none;
-  }
-  
-  .butt--exit {
-    background: linear-gradient(#f37458 0%, #de4c12 100%);
-  }
-  
-  .add_tab {
-    border: 1px solid #fff;
-    color: #fff;
+}
+
+/* Traffic Light Buttons */
+.btn:nth-child(1) {
+    background: #ff5f56;
+}
+
+.btn:nth-child(2) {
+    background: #ffbd2e;
+}
+
+.btn:nth-child(3) {
+    background: #27c93f;
+}
+
+/* Add Tab Button */
+.add_tab {
+    color: #ffffff;
+    border: 1px solid #ffffff;
     padding: 0 6px;
     border-radius: 4px 4px 0 0;
     border-bottom: none;
     cursor: pointer;
-  }
-  
-  .user {
-    color: #d5d0ce;
-    margin-left: 6px;
-    font-size: 14px;
-    line-height: 15px;
-  }
-  
-  .terminal_body {
-    background: rgba(0, 0, 0, 0.6);
-    height: calc(100% - 30px);
-    padding-top: 2px;
+}
+
+/* Terminal Body */
+.terminal_body {
+    background: rgba(0, 0, 0, 0.9);
+    height: 300px;
+    padding: 15px;
     margin-top: -1px;
-    font-size: 12px;
+    font-family: monospace;
+    font-size: 14px;
+    overflow-y: auto;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-  }
-  
-  .terminal_promt {
-    display: flex;
-  }
-  
-  .terminal_promt span {
-    margin-left: 4px;
-  }
-  
-  .terminal_user {
+}
+
+/* Terminal Text Styles */
+.terminal-line {
+    margin: 5px 0;
     color: #1eff8e;
-  }
-  
-  .terminal_location {
+}
+
+.terminal_promt {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.terminal_user {
+    color: #1eff8e;
+}
+
+.terminal_location {
     color: #4878c0;
-  }
-  
-  .terminal_bling {
+}
+
+.terminal_bling {
     color: #dddddd;
-  }
-  
-  .terminal_cursor {
-    display: block;
-    height: 14px;
-    width: 5px;
-    margin-left: 10px;
-    animation: curbl 1200ms linear infinite;
-  }
-  
-  @keyframes curbl {
-  
-    0% {
-      background: #ffffff;
-    }
-  
-    49% {
-      background: #ffffff;
-    }
-  
-    60% {
-      background: transparent;
-    }
-  
-    99% {
-      background: transparent;
-    }
-  
-    100% {
-      background: #ffffff;
-    }
-  }
+}
 
-     /* Terminal Styles */
-     .container {
-        max-width: 800px;
-        margin: 20px auto;
-        background: #1a1b1f;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    }
+#terminal-input {
+    background: transparent;
+    border: none;
+    color: #1eff8e;
+    font-family: monospace;
+    font-size: 14px;
+    outline: none;
+    width: calc(100% - 100px);
+    margin-left: 5px;
+    caret-color: #1eff8e;
+    caret-shape: block;
+    animation: blink 1s infinite;
+}
 
-    .terminal_toolbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-        background: #2b2b2b;
-        border-radius: 8px 8px 0 0;
-    }
+@keyframes blink {
+    0%, 100% { caret-color: #1eff8e; }
+    50% { caret-color: transparent; }
+}
 
-    .butt {
-        display: flex;
-        gap: 8px;
-    }
+.github {
+    padding: 2rem;
+    margin-top: 2rem; /* Space after the terminal */
+    width: 100%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-    .btn {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        border: none;
-        cursor: pointer;
-    }
+/* Github Repo Styling */
+.repo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
 
-    .btn-color {
-        background: #ff5f56;
-    }
+.repo-card {
+    background: white;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
 
-    .btn:nth-child(2) {
-        background: #ffbd2e;
-    }
+.repo-card:hover {
+    transform: translateY(-2px);
+}
 
-    .btn:nth-child(3) {
-        background: #27c93f;
-    }
+.repo-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
 
-    .add_tab {
-        color: #808080;
-        cursor: pointer;
-    }
+.repo-icon {
+    width: 16px;
+    height: 16px;
+}
 
-    .terminal_body {
-        padding: 15px;
-        height: 300px;
-        overflow-y: auto;
-        font-family: monospace;
-    }
+.repo-name {
+    color: #0366d6;
+    font-weight: 600;
+    text-decoration: none;
+}
 
-    .terminal_promt {
-        display: flex;
-        gap: 5px;
-        color: #00ff00;
-        font-size: 14px;
-        line-height: 1.5;
-    }
+.repo-visibility {
+    font-size: 0.75rem;
+    color: #586069;
+    border: 1px solid #e1e4e8;
+    border-radius: 2em;
+    padding: 0.125rem 0.5rem;
+}
 
-    .terminal_user {
-        color: #00ff00;
-    }
+.repo-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    color: #586069;
+}
 
-    .terminal_location {
-        color: #4878c0;
-    }
+.repo-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
 
-    .terminal_bling {
-        color: #00ff00;
-    }
+.language-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
 
-    .terminal_cursor {
-        display: inline-block;
-        width: 8px;
-        height: 14px;
-        background: #00ff00;
-        margin-left: 4px;
-        animation: blink 1s infinite;
-    }
-
-    @keyframes blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0; }
-    }
-
-    #terminal-input {
-        background: transparent;
-        border: none;
-        color: #00ff00;
-        font-family: monospace;
-        font-size: 14px;
-        outline: none;
-        width: calc(100% - 200px);
-        margin-left: 5px;
-    }
-
-    .terminal-line {
-        margin: 5px 0;
-        color: #00ff00;
-    }
+.forked-info {
+    font-size: 0.75rem;
+    color: #586069;
+    margin: 0.5rem 0;
+}
