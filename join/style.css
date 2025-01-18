@@ -230,7 +230,7 @@
 }
 
 .sidebar.open {
-    width: 250px;
+    width: 240px;
 }
 
 @media (max-width: 768px) {
