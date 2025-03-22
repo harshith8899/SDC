@@ -239,3 +239,65 @@
     align-items: center;
     position: relative;
 }
+
+.chathurya-footer {
+    background-color: #212529;
+    color: #fff;
+    padding: 40px 20px;
+    z-index: 100;
+    text-align: center;
+  }
+  .chathurya-footer .footer-logo {
+    font-size: 1.8rem;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .chathurya-footer .footer-menu {
+    margin: 20px 0;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  .chathurya-footer .footer-menu li {
+    display: inline-block;
+  }
+  .chathurya-footer .footer-menu li a {
+    color: #fff;
+    font-size: 0.9rem;
+    text-decoration: none;
+  }
+  .chathurya-footer .footer-social-icons {
+    margin: 20px 0;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  .chathurya-footer .footer-social-icons li {
+    display: inline-block;
+  }
+  .chathurya-footer .footer-social-icons a {
+    color: #fff;
+    font-size: 1.5rem;
+    display: inline-block;
+    padding: 10px;
+    background-color: #495057;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  .chathurya-footer .footer-social-icons a:hover {
+    background-color: #6c757d;
+    transform: scale(1.1);
+  }
+  .chathurya-footer .footer-copyright {
+    font-size: 0.85rem;
+    margin-top: 20px;
+    color: #ced4da;
+  }
+  .chathurya-footer .heart {
+    color: red;
+  }
+  
