@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <section class="logo-showcase">
+        <div class="logo-card">
+          <div class="logo-image">
+            <img src="icon.png" alt="Chathurya Logo">
+          </div>
+          <div class="logo-content">
+            <h2>The Infinity of Development</h2>
+            <p>Our logo's infinity symbol represents the boundless possibilities in technology and coding. Just as code can create infinite solutions, Chathurya provides endless opportunities for growth and learning. The bright green color symbolizes innovation, energy and the fresh perspectives our student developers bring to the tech world.</p>
+            <a href="about/index.html" class="learn-more">Learn more about us <i class='bx bx-right-arrow-alt'></i></a>
+          </div>
+        </div>
+      </section>
+      
+      <style>
+      .logo-showcase {
+        padding: 3rem 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fcfcfc;
+      }
+      
+      .logo-card {
+        display: flex;
+        max-width: 900px;
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      }
+      
+      .logo-image {
+        flex: 1;
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #222;
+      }
+      
+      .logo-image img {
+        max-width: 100%;
+        height: auto;
+      }
+      
+      .logo-content {
+        flex: 1.5;
+        padding: 2.5rem;
+      }
+      
+      .logo-content h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        color: #000;
+      }
+      
+      .logo-content p {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: #444;
+        margin-bottom: 1.5rem;
+      }
+      
+      .learn-more {
+        display: inline-flex;
+        align-items: center;
+        color: #c1ff00;
+        font-weight: 600;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      
+      .learn-more:hover {
+        color: #9cd100;
+      }
+      
+      .learn-more i {
+        margin-left: 5px;
+        transition: transform 0.2s;
+      }
+      
+      .learn-more:hover i {
+        transform: translateX(3px);
+      }
+      
+      @media (max-width: 768px) {
+        .logo-card {
+          flex-direction: column;
+        }
+        
+        .logo-image, .logo-content {
+          padding: 1.5rem;
+        }
+      }
+      </style>
+</body>
+</html>

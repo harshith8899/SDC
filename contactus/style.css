@@ -18,6 +18,7 @@
     padding: 6px 14px;
     z-index: 99;
     transition: all 0.5s ease;
+    z-index: 1000;
 }
 
 .sidebar.open {
@@ -181,29 +182,6 @@
         /* Slightly smaller when open on mobile */
     }
 
-    /* Hamburger trigger for mobile */
-    .mobile-trigger {
-        position: fixed;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        background: #11101D;
-        color: white;
-        width: 20px;
-        height: 40px;
-        border-radius: 0 5px 5px 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        z-index: 100;
-        transition: all 0.5s ease;
-    }
-
-    .sidebar.open~.mobile-trigger {
-        left: 240px;
-    }
-
     /* Make sidebar overlay content instead of pushing it */
     .sidebar {
         box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
@@ -227,3 +205,8 @@
     position: relative;
 }
 
+.chathurya-footer .infinite {
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+    font-size: 1rem;
+    color: chartreuse;
+  }
