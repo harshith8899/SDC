@@ -782,4 +782,8 @@
   .chathurya-footer .heart {
     color: red;
   }
-  
+  .chathurya-footer .infinite {
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+    font-size: 1rem;
+    color: chartreuse;
+  }

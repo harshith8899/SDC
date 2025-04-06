@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chathurya | Contact Us</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel='stylesheet'>
-    <link rel="stylesheet" href="./style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
     <script src="scripts.js"></script>
 
     <style>
-        body {
-            margin: 0;
-            font: normal 75% Arial, Helvetica, sans-serif;
-            height: 100vh;
-            width: 100vw;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+      body {
+        margin: 0;
+        font: normal 75% Arial, Helvetica, sans-serif;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow-x: hidden;
+      }
 
-        canvas {
-            display: block;
-            vertical-align:bottom;
-        }
+      canvas {
+        display: block;
+      }
 
         /* ---- particles.js container ---- */
         #particles-js {
@@ -37,6 +41,7 @@
             background-repeat: no-repeat;
             background-size: cover;
             background-position: 50% 50%;
+            z-index: 1;
         }
 
         /* ---- stats.js ---- */
@@ -46,7 +51,6 @@
 
         #stats,
         .count-particles {
-            -webkit-user-select: none;
             margin-top: 5px;
             margin-left: 5px;
         }
@@ -60,185 +64,277 @@
             border-radius: 0 0 3px 3px;
         }
 
-        .glass-card {
-            width: 800px;
-            height: 380px;
-            padding: 20px;
-            border-radius: 15px;
-            background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            text-align: center;
-            color: #11101d;
-            z-index: 1;
-        }
+      .main-content {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        pointer-events: none;
+    }
 
-        .glass-card h2 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
+      .glass-card {
+        width: 800px;
+        height: 380px;
+        padding: 20px;
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        text-align: center;
+        color: #11101d;
+        z-index: 1;
+        pointer-events: auto;
+      }
 
-        .email-section {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+      .glass-card h2 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
 
-        .email-section a {
-            color: #11101d;
-            text-decoration: none;
-        }
+      .email-section {
+        text-align: center;
+        margin-bottom: 20px;
+      }
 
-        .email-section a:hover {
-            text-decoration: underline;
-        }
+      .email-section a {
+        color: #11101d;
+        text-decoration: none;
+      }
 
-        /* New Social Media Row Styles */
-        .social-media-row {
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            
-            margin: 30px 0;
-        }
+      .email-section a:hover {
+        text-decoration: underline;
+      }
 
-        .social-icon {
-            font-size: 4.5em;
-            color: #11101d;
-            transition: all 0.3s ease;
-        }
+      /* New Social Media Row Styles */
+      .social-media-row {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
 
-        .social-icon:hover {
-            transform: scale(1.2);
-        }
+        margin: 30px 0;
+      }
 
-        .social-icon.fa-instagram:hover {
-            color: #E1306C;
-        }
+      .social-icon {
+        font-size: 4.5em;
+        color: #11101d;
+        transition: all 0.3s ease;
+      }
 
-        .social-icon.fa-youtube:hover {
-            color: #FF0000;
-        }
+      .social-icon:hover {
+        transform: scale(1.2);
+      }
 
-        .social-icon.fa-discord:hover {
-            color: #395bd7;
-        }
+      .social-icon.fa-instagram:hover {
+        color: #e1306c;
+      }
 
-        .social-icon.fa-linkedin:hover {
-            color: #0532b9;
-        }
+      .social-icon.fa-youtube:hover {
+        color: #ff0000;
+      }
 
-        .coordinator-details {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-            font-size: 2vh;
-        }
+      .social-icon.fa-discord:hover {
+        color: #395bd7;
+      }
 
-        .coordinator {
-            flex: 1;
-            text-align: center;
-        }
+      .social-icon.fa-linkedin:hover {
+        color: #0532b9;
+      }
 
-        hr {
-            margin: 20px 0;
-            border: none;
-            border-top: 1px solid rgba(17, 16, 29, 0.2);
-        }
+      .coordinator-details {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        font-size: 2vh;
+      }
+
+      .coordinator {
+        flex: 1;
+        text-align: center;
+      }
+
+      hr {
+        margin: 20px 0;
+        border: none;
+        border-top: 1px solid rgba(17, 16, 29, 0.2);
+      }
+
+      .chathurya-footer {
+        background-color: #212529;
+        color: #fff;
+        padding: 40px 20px;
+        z-index: 100;
+        text-align: center;
+        margin-top: auto;
+      }
+      .chathurya-footer .footer-logo {
+        font-size: 1.8rem;
+        color: #fff;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+      .chathurya-footer .footer-menu {
+        margin: 20px 0;
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+      }
+      .chathurya-footer .footer-menu li {
+        display: inline-block;
+      }
+      .chathurya-footer .footer-menu li a {
+        color: #fff;
+        font-size: 0.9rem;
+        text-decoration: none;
+      }
+      .chathurya-footer .footer-social-icons {
+        margin: 20px 0;
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+      }
+      .chathurya-footer .footer-social-icons li {
+        display: inline-block;
+      }
+      .chathurya-footer .footer-social-icons a {
+        color: #fff;
+        font-size: 1.5rem;
+        display: inline-block;
+        padding: 10px;
+        background-color: #495057;
+        transition: background-color 0.3s, transform 0.3s;
+      }
+      .chathurya-footer .footer-social-icons a:hover {
+        background-color: #6c757d;
+        transform: scale(1.1);
+      }
+      .chathurya-footer .footer-copyright {
+        font-size: 0.85rem;
+        margin-top: 20px;
+        color: #ced4da;
+      }
+      .chathurya-footer .heart {
+        color: red;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="sidebar">
-        <div class="logo-details">
-            <i class='bx bx-code-curly icon'></i>
-            <div class="logo_name">Club</div>
-            <i class='bx bx-menu' id="btn"></i>
-        </div>
-        <ul class="nav-list">
-            <li>
-                <a href="../index.html">
-                    <i class='bx bx-home'></i>
-                    <span class="links_name">Home</span>
-                </a>
-                <span class="tooltip">Home</span>
-            </li>
-            <li>
-                <a href="../events/index.html">
-                    <i class='bx bx-calendar-event'></i>
-                    <span class="links_name">Events</span>
-                </a>
-                <span class="tooltip">Events</span>
-            </li>
-            <li>
-                <a href="../projects/index.html">
-                    <i class='bx bx-folder'></i>
-                    <span class="links_name">Projects</span>
-                </a>
-                <span class="tooltip">Projects</span>
-            </li>
-            <li>
-                <a href="../gallery/index.html">
-                    <i class='bx bx-photo-album'></i>
-                    <span class="links_name">Gallery</span>
-                </a>
-                <span class="tooltip">Gallery</span>
-            </li>
-            <li>
-                <a href="../about/index.html">
-                    <i class='bx bx-info-square'></i>
-                    <span class="links_name">About Us</span>
-                </a>
-                <span class="tooltip">About Us</span>
-            </li>
-            <li>
-                <a href="../contactus/index.html">
-                    <i class='bx bx-support'></i>
-                    <span class="links_name">Contact Us</span>
-                </a>
-                <span class="tooltip">Contact Us</span>
-            </li>
-            <li>
-                <a href="../join/index.html">
-                    <i class='bx bx-log-in-circle'></i>
-                    <span class="links_name">Join</span>
-                </a>
-                <span class="tooltip">Join</span>
-            </li>
-        </ul>
+      <div class="logo-details">
+        <i class="bx bx-code-curly icon"></i>
+        <div class="logo_name">Club</div>
+        <i class="bx bx-menu" id="btn"></i>
+      </div>
+      <ul class="nav-list">
+        <li>
+          <a href="../index.html">
+            <i class="bx bx-home"></i>
+            <span class="links_name">Home</span>
+          </a>
+          <span class="tooltip">Home</span>
+        </li>
+        <li>
+          <a href="../events/index.html">
+            <i class="bx bx-calendar-event"></i>
+            <span class="links_name">Events</span>
+          </a>
+          <span class="tooltip">Events</span>
+        </li>
+        <li>
+          <a href="../projects/index.html">
+            <i class="bx bx-folder"></i>
+            <span class="links_name">Projects</span>
+          </a>
+          <span class="tooltip">Projects</span>
+        </li>
+        <li>
+          <a href="../gallery/index.html">
+            <i class="bx bx-photo-album"></i>
+            <span class="links_name">Gallery</span>
+          </a>
+          <span class="tooltip">Gallery</span>
+        </li>
+        <li>
+          <a href="../about/index.html">
+            <i class="bx bx-info-square"></i>
+            <span class="links_name">About Us</span>
+          </a>
+          <span class="tooltip">About Us</span>
+        </li>
+        <li>
+          <a href="../contactus/index.html">
+            <i class="bx bx-support"></i>
+            <span class="links_name">Contact Us</span>
+          </a>
+          <span class="tooltip">Contact Us</span>
+        </li>
+        <li>
+          <a href="../join/index.html">
+            <i class="bx bx-log-in-circle"></i>
+            <span class="links_name">Join</span>
+          </a>
+          <span class="tooltip">Join</span>
+        </li>
+      </ul>
     </div>
 
     <!-- particles.js container -->
     <div id="particles-js"></div>
 
     <!--FORM-->
-    <div class="glass-card">
+    <div class="main-content">
+      <div class="glass-card">
         <h2>Contact Us</h2>
-        
+
         <!-- Email Section -->
         <div class="email-section">
-            <p>
-                <i class="fas fa-envelope"></i>
-                <strong>Email:&nbsp;</strong>
-                <a href="mailto:chathuryasdc@gmail.com">chathuryasdc@gmail.com</a>
-            </p>
+          <p>
+            <i class="fas fa-envelope"></i>
+            <strong>Email:&nbsp;</strong>
+            <a href="mailto:chathuryasdc@gmail.com">chathuryasdc@gmail.com</a>
+          </p>
         </div>
 
         <!-- Social Media Icons Row -->
         <div class="social-media-row">
-            <a href="https://instagram.com/your_handle" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-instagram social-icon"></i>
-            </a>
-            <a href="https://youtube.com/your_channel" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-youtube social-icon"></i>
-            </a>
-            <a href="https://discord.gg/your_server" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-discord social-icon"></i>
-            </a>
-            <a href="https://linkedin.com/in/your_profile" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-linkedin social-icon"></i>
-            </a>
+          <a
+            href="https://instagram.com/your_handle"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-instagram social-icon"></i>
+          </a>
+          <a
+            href="https://youtube.com/your_channel"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-youtube social-icon"></i>
+          </a>
+          <a
+            href="https://discord.gg/your_server"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-discord social-icon"></i>
+          </a>
+          <a
+            href="https://linkedin.com/in/your_profile"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-linkedin social-icon"></i>
+          </a>
         </div>
 
         <hr />
@@ -246,19 +342,57 @@
         <!-- Coordinator Section -->
         <h2>Club Leads</h2>
         <div class="coordinator-details">
-            <div class="coordinator">
-                <strong>Lead 1</strong><br />
-                987-654323
-            </div>
-            <div class="coordinator">
-                <strong>Lead 2</strong><br />
-                678-901255
-            </div>
-            
+          <div class="coordinator">
+            <strong>Lead 1</strong><br />
+            987-654323
+          </div>
+          <div class="coordinator">
+            <strong>Lead 2</strong><br />
+            678-901255
+          </div>
         </div>
+      </div>
     </div>
 
-    
+    <footer class="chathurya-footer">
+      <div class="footer-content text-center">
+        <h2 class="footer-logo">Chathurya | Student Developers Club</h2>
+        <ul class="footer-menu">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="/about/index.html">About</a></li>
+          <li><a href="/contactus/index.html">Contact</a></li>
+          <li><a href="/join/index.html">Join</a></li>
+        </ul>
+        <ul class="footer-social-icons">
+          <li>
+            <a href="#" title="Twitter"><i class="bx bxl-twitter"></i></a>
+          </li>
+          <li>
+            <a href="#" title="Discord"><i class="bx bxl-discord"></i></a>
+          </li>
+          <li>
+            <a href="#" title="Instagram"><i class="bx bxl-instagram"></i></a>
+          </li>
+          <li>
+            <a href="#" title="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+          </li>
+          <li>
+            <a href="www.github.com/Chathurya-SDC" title="GitHub"
+              ><i class="bx bxl-github"></i
+            ></a>
+          </li>
+        </ul>
+        <p class="footer-copyright">
+          &copy;
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          All rights reserved | Made with 
+          <span class="heart">&hearts;</span> by Chathurya<span class="infinite">&nbsp;∞</span>
+        </p>
+      </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
 
@@ -343,6 +477,5 @@
         };
         requestAnimationFrame(update);
     </script>
-</body>
-
+  </body>
 </html>
