@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="icon.png">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 
 <body>
@@ -145,6 +146,49 @@
           </p>
         </div>
       </footer>
+      <script>
+        window.addEventListener('load', function () {
+    
+            function launchConfetti() {
+                const count = 1000;
+    
+                const baseOptions = {
+                    ticks: 2000,
+                    gravity: 1,
+                    decay: 0.9,
+                    startVelocity: 10,
+                    colors: ['#4f46e5', '#9333ea', '#ffffff', '#000000']
+                };
+    
+                function fireFromCorner(xOrigin, angleDirection) {
+                    function fire(particleRatio, opts) {
+                        confetti({
+                            ...baseOptions,
+                            origin: { x: xOrigin, y: 1 },
+                            angle: angleDirection, // New: angle controls the direction of spray
+                            ...opts,
+                            particleCount: Math.floor(count * particleRatio)
+                        });
+                    }
+    
+                    // Lower spread for tighter stream, angle directs it toward center
+                    fire(0.3, { spread: 20, startVelocity: 65 });
+                    fire(0.25, { spread: 40 });
+                    fire(0.3, { spread: 60, decay: 0.92, scalar: 1 });
+                    fire(0.1, { spread: 80, startVelocity: 25, scalar: 1.5 });
+                    fire(0.05, { spread: 80, startVelocity: 55 });
+                }
+    
+                // Bottom-left corner shoots toward center-right (angle 60°)
+                fireFromCorner(0, 60);
+    
+                // Bottom-right corner shoots toward center-left (angle 120°)
+                fireFromCorner(1, 120);
+            }
+    
+            setTimeout(launchConfetti, 500);
+        });
+    </script>    
 
     <!-- Scripts -->
     <script src="script.js"></script>
