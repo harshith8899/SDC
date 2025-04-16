@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Club Launch</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0a0a0a;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+      color: white;
+    }
+
+    #scene-container {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+    }
+
+    #particles {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      z-index: 1;
+    }
+
+    /* Loading Animation Styles */
+    .loading-overlay {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background: #0a0a0a;
+      z-index: 20;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .loader {
+      width: 200px;
+      height: 4px;
+      background: #1a1a1a;
+      margin-top: 20px;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .loader-bar {
+      width: 0%;
+      height: 100%;
+      background: #4f46e5;
+      transition: width 0.5s ease-in-out;
+    }
+
+    .loading-text {
+      font-size: 18px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .loading-status {
+      font-size: 14px;
+      color: #4f46e5;
+      margin-top: 10px;
+      opacity: 0.8;
+    }
+
+    /* Launch Button Styles */
+    .launch-container {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      z-index: 10;
+      display: none; /* Hidden initially */
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .launch-button {
+      padding: 20px 50px;
+      font-size: 24px;
+      background: linear-gradient(45deg, #4f46e5, #9333ea);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      z-index: 11;
+      box-shadow: 0 0 30px rgba(79, 70, 229, 0.5);
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .launch-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 50px rgba(79, 70, 229, 0.8);
+    }
+
+    .launch-button::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.1);
+      transform: rotate(45deg);
+      transition: all 0.5s ease;
+    }
+
+    .launch-button:hover::after {
+      transform: rotate(45deg) translate(30%, 30%);
+    }
+
+    /* Countdown Styles */
+    .countdown-container {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      z-index: 5;
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .countdown {
+      font-size: 120px;
+      font-weight: 800;
+      background: linear-gradient(45deg, #4f46e5, #9333ea);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 20px rgba(79, 70, 229, 0.5);
+    }
+
+    @media (max-width: 768px) {
+      .loading-text {
+        font-size: 14px;
+      }
+      .launch-button {
+        padding: 15px 30px;
+        font-size: 18px;
+      }
+      .countdown {
+        font-size: 80px;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+  <div id="particles"></div>
+  <div id="scene-container"></div>
+
+  <!-- 1. Initial Loading Animation -->
+  <div class="loading-overlay">
+    <div class="loading-text">INITIALIZING LAUNCH SEQUENCE</div>
+    <div class="loader">
+      <div class="loader-bar"></div>
+    </div>
+    <div class="loading-status">Booting systems...</div>
+  </div>
+
+  <!-- 2. Launch Button (hidden initially) -->
+  <div class="launch-container">
+    <button class="launch-button">>sudo launch</button>
+  </div>
+
+  <!-- 3. Countdown (hidden initially) -->
+  <div class="countdown-container">
+    <div class="countdown">10</div>
+  </div>
+
+  <script>
+    // Particle.js Configuration
+    particlesJS('particles', {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: "#4f46e5" },
+        shape: { type: "circle" },
+        opacity: {
+          value: 0.5,
+          random: true,
+          animation: {
+            enable: true,
+            speed: 1,
+            opacity_min: 0.1,
+            sync: false
+          }
+        },
+        size: {
+          value: 3,
+          random: true,
+          animation: {
+            enable: true,
+            speed: 2,
+            size_min: 0.1,
+            sync: false
+          }
+        },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#4f46e5",
+          opacity: 0.2,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 1,
+          direction: "none",
+          random: true,
+          straight: false,
+          out_mode: "out",
+          bounce: false,
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" },
+          resize: true
+        }
+      },
+      retina_detect: true
+    });
+
+    // Three.js Scene Setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.getElementById('scene-container').appendChild(renderer.domElement);
+
+    // Create floating cubes
+    const cubes = [];
+    for (let i = 0; i < 50; i++) {
+      const geometry = new THREE.BoxGeometry(1, 1, 1);
+      const material = new THREE.MeshPhongMaterial({
+        color: 0x4f46e5,
+        transparent: true,
+        opacity: 0.3,
+        wireframe: true
+      });
+      const cube = new THREE.Mesh(geometry, material);
+      cube.position.set(
+        Math.random() * 40 - 20,
+        Math.random() * 40 - 20,
+        Math.random() * 40 - 20
+      );
+      cube.rotation.set(
+        Math.random() * Math.PI,
+        Math.random() * Math.PI,
+        Math.random() * Math.PI
+      );
+      scene.add(cube);
+      cubes.push(cube);
+    }
+
+    // Add lights
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(ambientLight);
+
+    const pointLight = new THREE.PointLight(0x4f46e5, 1, 100);
+    pointLight.position.set(10, 10, 10);
+    scene.add(pointLight);
+
+    camera.position.z = 30;
+
+    // Animation loop
+    function animate() {
+      requestAnimationFrame(animate);
+      
+      cubes.forEach(cube => {
+        cube.rotation.x += 0.01;
+        cube.rotation.y += 0.01;
+      });
+
+      renderer.render(scene, camera);
+    }
+
+    // Start animations
+    animate();
+
+    // DOM Elements
+    const loadingOverlay = document.querySelector('.loading-overlay');
+    const loaderBar = document.querySelector('.loader-bar');
+    const loadingStatus = document.querySelector('.loading-status');
+    const launchContainer = document.querySelector('.launch-container');
+    const launchButton = document.querySelector('.launch-button');
+    const countdownContainer = document.querySelector('.countdown-container');
+    const countdown = document.querySelector('.countdown');
+
+    // Loading steps for the initialization sequence
+    const loadingSteps = [
+      'Initializing core systems...',
+      'Loading developer tools...',
+      'Connecting to club network...',
+      'Preparing workspace...',
+      'Launch sequence ready!'
+    ];
+
+    // 1. First show loading animation
+    window.addEventListener('load', () => {
+      let currentStep = 0;
+      const updateLoadingStatus = () => {
+        if (currentStep < loadingSteps.length) {
+          loadingStatus.textContent = loadingSteps[currentStep];
+          loaderBar.style.width = `${(currentStep / loadingSteps.length) * 100}%`;
+          currentStep++;
+
+          if (currentStep < loadingSteps.length) {
+            setTimeout(updateLoadingStatus, 1000);
+          } else {
+            setTimeout(() => {
+              // Hide loading overlay
+              gsap.to(loadingOverlay, {
+                opacity: 0,
+                duration: 0.5,
+                onComplete: () => {
+                  loadingOverlay.style.display = 'none';
+                  // Show launch button
+                  launchContainer.style.display = 'flex';
+                  gsap.to(launchContainer, {
+                    opacity: 1,
+                    duration: 0.5
+                  });
+                }
+              });
+            }, 500);
+          }
+        }
+      };
+
+      updateLoadingStatus();
+    });
+
+    // 2. When launch button is clicked
+    launchButton.addEventListener('click', () => {
+      // Hide launch button
+      gsap.to(launchContainer, {
+        opacity: 0,
+        duration: 0.5,
+        onComplete: () => {
+          launchContainer.style.display = 'none';
+          // Show countdown
+          countdownContainer.style.display = 'flex';
+          gsap.to(countdownContainer, {
+            opacity: 1,
+            duration: 0.5
+          });
+          
+          // Start 10 second countdown
+          let counter = 10;
+          countdown.textContent = counter;
+          
+          const countdownInterval = setInterval(() => {
+            counter--;
+            countdown.textContent = counter;
+            
+            if (counter === 0) {
+              clearInterval(countdownInterval);
+              // Redirect to main website with confetti
+              window.location.href = "index.html";
+            }
+          }, 1000);
+        }
+      });
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // Confetti function to be called on main website (index.html)
+    function launchConfetti() {
+      const duration = 5 * 1000;
+      const end = Date.now() + duration;
+
+      (function frame() {
+        confetti({
+          particleCount: 7,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0 },
+          colors: ['#4f46e5', '#9333ea', '#ffffff']
+        });
+        confetti({
+          particleCount: 7,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1 },
+          colors: ['#4f46e5', '#9333ea', '#ffffff']
+        });
+
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      }());
+    }
+  </script>
+</body>
+</html>
