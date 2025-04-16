@@ -325,7 +325,3 @@ document.addEventListener('keydown', async (e) => {
         }
     }
 });
-
-// Don't create a new prompt on initialization since it's already in the HTML
-// Just focus the existing input
-document.getElementById('terminal-input').focus();
