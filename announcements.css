@@ -597,6 +597,41 @@
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
+.parent-announcements {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 3rem;
+    padding: 2rem 1.5rem;
+    color: #333;
+    border-radius: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 52vh;
+}
+.child-announcements {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    color: #333;
+    margin: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+#announcements-button {
+    padding: 1rem;
+    margin: 1.5rem;
+    background-color: #9cd100;
+    border-radius: 10px;
+    
+}
+.registration-link{
+    text-decoration: none;
+    color: #0a0a1a;
+}
+
+
 /* Github Repo Styling */
 .repo-grid {
     display: flex;
@@ -827,11 +862,13 @@
 }
 
 .chathurya-footer {
-    background-color: #212529;
+    background-color: #11101D;
     color: #fff;
     padding: 40px 20px;
     z-index: 100;
     text-align: center;
+    bottom: 0;
+    width: 100vw;
   }
   .chathurya-footer .footer-logo {
     font-size: 1.8rem;
