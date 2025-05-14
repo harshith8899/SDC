@@ -928,3 +928,184 @@
     font-size: 1rem;
     color: chartreuse;
   }
+
+  /* media query starts here */
+  /* Tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .parent-announcements {
+        flex-direction: column;
+        margin: 2rem 1rem;
+        padding: 1.5rem;
+    }
+
+    .child-announcements {
+        width: 80%;
+        margin: 1rem auto;
+        padding: 1.5rem;
+    }
+
+    #announcements-button {
+        padding: 0.8rem;
+        margin: 1rem;
+    }
+
+    .repo-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .repo-card {
+        width: 90%;
+        max-width: 400px;
+        height: auto;
+        padding: 1rem;
+    }
+
+    .chathurya-footer .footer-menu {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .chathurya-footer .footer-social-icons {
+        gap: 10px;
+    }
+}
+
+/* Mobile (max-width: 767px) */
+@media (max-width: 767px) {
+    .github {
+        padding: 1rem;
+        margin: 0 0.5rem;
+    }
+
+    .github h1 {
+        font-size: 1.8rem;
+    }
+
+    .repo-grid {
+        margin-top: 1rem;
+        padding: 0;
+    }
+
+    .repo-card {
+        width: 100%;
+        margin: 0.5rem 0;
+        padding: 0.8rem;
+    }
+
+    .repo-name {
+        font-size: 1rem;
+    }
+
+    .repo-description {
+        font-size: 0.9rem;
+    }
+
+    .repo-meta {
+        gap: 0.5rem;
+        font-size: 0.7rem;
+    }
+
+    .parent-announcements {
+        margin: 1rem 0.5rem;
+        padding: 1rem;
+        margin-bottom: 30vh;
+    }
+
+    .child-announcements {
+        width: 100%;
+        margin: 0.5rem 0;
+        padding: 1rem;
+    }
+
+    .child-announcements h1 {
+        font-size: 1.5rem;
+    }
+
+    .child-announcements p {
+        font-size: 0.9rem;
+    }
+
+    #announcements-button {
+        padding: 0.6rem;
+        margin: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .registration-link {
+        font-size: 0.9rem;
+    }
+
+    .chathurya-footer {
+        padding: 20px 10px;
+    }
+
+    .chathurya-footer .footer-logo {
+        font-size: 1.5rem;
+    }
+
+    .chathurya-footer .footer-menu {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .chathurya-footer .footer-menu li a {
+        font-size: 0.85rem;
+    }
+
+    .chathurya-footer .footer-social-icons {
+        gap: 8px;
+    }
+
+    .chathurya-footer .footer-social-icons a {
+        font-size: 1.2rem;
+        padding: 8px;
+    }
+
+    .chathurya-footer .footer-copyright {
+        font-size: 0.75rem;
+    }
+}
+
+/* Extra Small Devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .github h1 {
+        font-size: 1.5rem;
+    }
+
+    .child-announcements h1 {
+        font-size: 1.2rem;
+    }
+
+    .child-announcements p {
+        font-size: 0.8rem;
+    }
+
+    #announcements-button {
+        padding: 0.5rem;
+        margin: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .repo-card {
+        padding: 0.6rem;
+    }
+
+    .repo-name {
+        font-size: 0.9rem;
+    }
+
+    .repo-description {
+        font-size: 0.8rem;
+    }
+
+    .chathurya-footer .footer-logo {
+        font-size: 1.2rem;
+    }
+
+    .chathurya-footer .footer-social-icons a {
+        font-size: 1rem;
+        padding: 6px;
+    }
+}
