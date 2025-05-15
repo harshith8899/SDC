@@ -590,10 +590,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 2rem 1.5rem;
     background-color: #11101D;
     color: #c1ff00;
-    border-radius: 12px;
+    width: 100vw;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
@@ -974,10 +973,6 @@
 
 /* Mobile (max-width: 767px) */
 @media (max-width: 767px) {
-    .github {
-        padding: 1rem;
-        margin: 0 0.5rem;
-    }
 
     .github h1 {
         font-size: 1.8rem;
